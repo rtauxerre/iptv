@@ -1,0 +1,8 @@
+#! /bin/sh
+
+# Halt on error
+set -e
+
+# Enable the streaming service
+systemctl enable iptv.service
+systemctl start iptv.service
