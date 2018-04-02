@@ -1,9 +1,12 @@
 <?php
 
 function control() {
-	echo '<a role="button" href="index.php?action=start" class="btn btn-success">Start</a> ';
-	echo '<a role="button" href="index.php?action=restart" class="btn btn-warning">Restart</a> ';
-	echo '<a role="button" href="index.php?action=stop" class="btn btn-danger">Stop</a>';
+	echo '<a role="button" href="index.php?start" class="btn btn-success">Start</a> ';
+	echo '<a role="button" href="index.php?restart" class="btn btn-warning">Restart</a> ';
+	echo '<a role="button" href="index.php?stop" class="btn btn-danger">Stop</a>';
+	if ( isset($_GET["start"]) == TRUE ) start();
+	elseif ( isset($_GET["restart"]) == TRUE ) restart();
+	elseif ( isset($_GET["stop"]) == TRUE ) stop();
 }
 
 function status() {
@@ -11,30 +14,26 @@ function status() {
 	system( 'systemctl --no-pager status iptv', $error );
 	echo '</pre>';
 	if ( $error == 0 ) {
-		echo '<div class="alert alert-success">';
-		echo '<strong>Success!</strong> IPTV service is started.';
-		echo '</div>';
+		echo '<div class="alert alert-success"><strong>Success!</strong> IPTV service is started</div>';
 	}
 	else {
-		echo '<div class="alert alert-danger">';
-		echo '<strong>Failed!</strong> IPTV service is not started';
-		echo '</div>';
+		echo '<div class="alert alert-danger"><strong>Failed!</strong> IPTV service is not started</div>';
 	}
 	echo '<pre>';
-	system( 'journalctl -xb | grep dvblast' );
+	system( 'journalctl --no-pager $(which dvblast)' );
 	echo '</pre>';
 }
 
 function start() {
-	system( 'systemctl start iptv' );
+	system( 'systemctl --no-pager start iptv' );
 }
 
 function stop() {
-	system( 'systemctl stop iptv' );
+	system( 'systemctl --no-pager stop iptv' );
 }
 
 function restart() {
-	system( 'systemctl restart iptv' );
+	system( 'systemctl --no-pager restart iptv' );
 }
 
 ?>
