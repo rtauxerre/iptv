@@ -6,3 +6,7 @@ set -e
 # Disable the streaming service
 systemctl stop iptv.service
 systemctl disable iptv.service
+
+# Disable lighttpd
+systemctl stop lighttpd
+systemctl disable lighttpd

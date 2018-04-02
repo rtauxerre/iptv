@@ -6,3 +6,7 @@ set -e
 # Enable the streaming service
 systemctl enable iptv.service
 systemctl start iptv.service
+
+# Enable lighttpd and fastcgi
+lighttpd-enable-mod fastcgi fastcgi-php
+systemctl restart lighttpd
