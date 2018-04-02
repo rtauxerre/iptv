@@ -12,6 +12,10 @@
 <body>
 <div class="container">
 <h1>Administration du service de streaming TV</h1>
+<h2>Service status</h2>
+<?php
+echo "<pre>".exec('systemctl status iptv 2>&1')."</pre>";
+?>
 <div class="footer">
 <p>IUT RT Auxerre</p>
 </div><!-- footer -->
