@@ -11,16 +11,12 @@ function control() {
 
 function status() {
 	echo '<pre>';
-	system( 'systemctl --no-pager status iptv', $error );
+	system( '/usr/bin/sudo /bin/systemctl --no-pager status iptv', $error );
 	echo '</pre>';
-	if ( $error == 0 ) {
-		echo '<div class="alert alert-success"><strong>Success!</strong> IPTV service is started</div>';
-	}
-	else {
-		echo '<div class="alert alert-danger"><strong>Failed!</strong> IPTV service is not started</div>';
-	}
+	if ( $error == 0 ) echo '<div class="alert alert-success"><strong>Success!</strong> IPTV service is started</div>';
+	else echo '<div class="alert alert-danger"><strong>Failed!</strong> IPTV service is not started</div>';
 	echo '<pre>';
-	system( 'journalctl --no-pager $(which dvblast)' );
+	system( '/usr/bin/sudo /bin/journalctl --no-pager $(which dvblast)' );
 	echo '</pre>';
 }
 
@@ -33,7 +29,10 @@ function stop() {
 }
 
 function restart() {
-	system( 'systemctl --no-pager restart iptv' );
+/*	system( 'systemctl --no-pager restart iptv' ); */
+	echo restart;
+	$output = shell_exec("/usr/bin/sudo /bin/systemctl --no-pager restart iptv");
+	echo "<pre>$output</pre>";
 }
 
 ?>
