@@ -8,7 +8,7 @@ function control() {
 	if ( isset($_GET["start"]) == TRUE ) system( 'sudo systemctl start iptv' );
 	elseif ( isset($_GET["restart"]) == TRUE ) system( 'sudo systemctl restart iptv' );
 	elseif ( isset($_GET["stop"]) == TRUE ) system( 'sudo systemctl stop iptv' );
-	elseif ( isset($_GET["shutdown"]) == TRUE ) system( 'sudo systemctl shutdown' );
+	elseif ( isset($_GET["shutdown"]) == TRUE ) system( 'sudo systemctl poweroff' );
 }
 
 function status() {
