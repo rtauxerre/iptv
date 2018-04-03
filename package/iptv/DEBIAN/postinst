@@ -9,4 +9,4 @@ systemctl start iptv.service
 
 # Enable lighttpd and fastcgi
 lighttpd-enable-mod fastcgi fastcgi-php
-systemctl restart lighttpd
+systemctl force-reload lighttpd
