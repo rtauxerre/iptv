@@ -16,6 +16,7 @@
 		<h1>TV Streaming</h1>
 		<h2>Service control</h2>
 		<div class="container"><?php control(); ?></div>
+		<br />
 		<h2>Service status</h2>
 		<div class="container"><?php status(); ?></div>
 	</div>
