@@ -1,18 +1,18 @@
 
 # Streaming de la télévision TNT
 
+
 ## Configuration de la carte WinTV USB sous Linux
 
-Documentation :	https://www.linuxtv.org/wiki/index.php/Hauppauge_WinTV-dualHD
+Documentation :
 
-Téléchargement du firmware :
+	https://www.linuxtv.org/wiki/index.php/Hauppauge_WinTV-dualHD
+
+Téléchargement et installation du firmware :
 
 	wget http://palosaari.fi/linux/v4l-dvb/firmware/Si2168/Si2168-B40/4.0.25/dvb-demod-si2168-b40-01.fw
-
-Installation du firmware :
-
 	cp dvb-demod-si2168-b40-01.fw /lib/firmware/
-	reboot
+
 
 ## Recherche des chaines
 
@@ -23,13 +23,7 @@ Installation des logiciels nécessaires :
 Recherche des chaînes :
 
 	scan /usr/share/dvb/dvb-legacy/dvb-t/fr-All > channels-scan.conf
-
-Autre :
-
-	w_scan > channels.conf
-	w_scan -L > channels.xspf
-
-	scan /usr/share/dvb/dvb-legacy/dvb-t/fr-All
+	w_scan > channels-wscan.conf
 
 
 ## Diffusion de la TNT
