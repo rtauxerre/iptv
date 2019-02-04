@@ -3,11 +3,11 @@
 # Halt on error
 set -e
 
-# Enable the streaming service
-systemctl enable iptv.service
-systemctl start iptv.service
-
 # Enable lighttpd and fastcgi
 systemctl enable lighttpd
 lighttpd-enable-mod fastcgi fastcgi-php || true
 systemctl restart lighttpd
+
+# Enable the streaming service
+systemctl enable iptv.service
+systemctl start iptv.service
